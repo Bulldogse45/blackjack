@@ -19,7 +19,7 @@ class Blackjack
     self.dealer_cards = []
     self.player_cards = []
   end
-
+#This comment is unnecessary
   def game
     puts "Welcome to Matt's Casino!"
     while sitting
