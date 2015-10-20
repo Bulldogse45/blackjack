@@ -4,7 +4,7 @@ require_relative 'card'
 class Blackjack
 
   attr_accessor :shoe, :dealer_cards, :dealer_score, :player_cards, :player_score, :house_wins, :player_wins, :sitting, :game_active
-
+#this is an unnecessary  comment
   def initialize
     self.sitting = true
     self.player_wins = 0
