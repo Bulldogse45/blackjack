@@ -68,8 +68,8 @@ class Blackjack
   end
   def player_choice
     choosing = true
+    current_hand
     while choosing && calc_score(player_cards) <= 21 && player_cards.length < 6
-      current_hand
       puts "Would you like to (h)it or (s)tay?"
       response = gets.chomp
       if response =="h"
@@ -107,13 +107,13 @@ class Blackjack
 
   def dealer_show_cards
     puts "The dealer has the:"
-      self.dealer_cards.each {|card| puts "       #{card.face} of #{card.suit}"}
+      self.dealer_cards.each {|card| puts "#{card.face} of #{card.suit}"}
       puts "The dealer's total is #{calc_score(dealer_cards)} to your #{calc_score(player_cards)}"
   end
 
   def check_winner
     if calc_score(dealer_cards) > 21
-      puts "DEALER BUSTED!  Everyone left is a winner!"
+      puts "DEALER BUSTED! Everyone left is a winner!"
       self.player_wins+=1
     elsif calc_score(dealer_cards) > calc_score(player_cards)
       puts "The dealer's #{calc_score(dealer_cards)} beats your #{calc_score(player_cards)}"
@@ -180,7 +180,7 @@ class Blackjack
         if card.face == "ace"
           response = ""
           puts "You have the:"
-          self.player_cards.each {|card| puts "       #{card.face} of #{card.suit} "}
+          self.player_cards.each {|card| puts "   #{card.face} of #{card.suit} "}
           puts "Would you like your Ace to be worth '11' or '1'?"
           until response == "11" || response == "1"
             response = gets.chomp
